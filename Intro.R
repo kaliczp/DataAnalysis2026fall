@@ -18,3 +18,12 @@ help.start()
 vignette(package = "sf")
 ## You can close the software from the promt too.
 q()
+
+## Let's create an object.
+MyFirstObject = 1 + 2
+## Create object from the sequence
+SecondObject <- 1:10
+## List objects in Global Env.
+ls()
+## Every procedures are vectorised
+MyFirstObject + SecondObject
