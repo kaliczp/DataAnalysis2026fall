@@ -1,0 +1,10 @@
+*.csv
+*.txt
+*.cpg
+*.dbf
+*.prj
+*.qmd
+*.shp
+*.shx
+.R*
+*~
