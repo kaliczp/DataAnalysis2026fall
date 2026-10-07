@@ -1,12 +1,12 @@
 ## Use the citation function from the intro text.
 citation()
-## If you not write bracets the code of function will printed automaticly
+## If you not write braces the code of function will printed automatically
 citation
-## If you makes some sintax error (e.g. not close bracket or apostrophes)
+## If you makes some syntax error (e.g. not close bracket or apostrophes)
 ## a plus sing will appear instead the normal prompt '>', then use Esc
 ## if you can not solve the problem.
 citation(
-## Use question mark to acces the user manual
+## Use question mark to access the user manual
 ?citation
 ## or alternatively help function. See the structure of manual!
 ## See also the Examples section at the end!
