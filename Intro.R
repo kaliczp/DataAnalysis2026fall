@@ -27,3 +27,6 @@ SecondObject <- 1:10
 ls()
 ## Every procedures are vectorised
 MyFirstObject + SecondObject
+
+## If you work with R copy all data in a folder and work there
+## If you work with RStudio create a project in a folder
