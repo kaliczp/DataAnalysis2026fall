@@ -5,8 +5,10 @@ str(deerexample)
 ## Fist and last lines of data
 head(deerexample)
 tail(deerexample)
+### EDA Exploratory Data Analysis
 ## Quick summary
 summary(deerexample)
+fivenum(deerexample$ID) #Tukey's five number
 ## Histogram
 hist(deerexample$LAT)
 hist(deerexample$LONG)
