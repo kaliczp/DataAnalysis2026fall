@@ -1,5 +1,5 @@
 ## Import based on import manual
-deerexample <- read.csv("deerexample.csv", sep = ";", header = TRUE)
+deerexample <- read.table("deerexample.csv", sep = ";", header = TRUE)
 ## See the structure of the data
 str(deerexample)
 ## Fist and last lines of data
