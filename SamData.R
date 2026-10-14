@@ -15,3 +15,8 @@ hist(deerexample$LONG)
 ## Boxplot
 boxplot(deerexample$LAT)
 boxplot(deerexample$LONG)
+
+### Expore the missing data
+IndexVector <- deerexample$ID
+## Indexing
+IndexVector[900]
