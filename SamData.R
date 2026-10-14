@@ -1,5 +1,8 @@
 ## Import based on import manual
 deerexample <- read.table("deerexample.csv", sep = ";", header = TRUE)
+## If you have error here try to check the file in the working folder?
+dir() # File "deerexample.csv" needs in the list
+getwd() # Print the working directory (folder)
 ## See the structure of the data
 str(deerexample)
 ## Fist and last lines of data
