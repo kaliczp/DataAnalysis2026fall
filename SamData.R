@@ -64,5 +64,17 @@ DeerMissingTable <- cbind(DeerGapStart, End = DeerGapEnd[,"UTC"])
 colnames(DeerMissingTable)<-c("Date", "Start","End")
 ## Home Work try to make a table with the start and end index of the gaps
 
-
+### Work with time
+Sys.Date()-1
+Sys.Date()-20747 # check the origin
+Sys.Date()-9:0 # past 10 days
+## Convert dates form deerexample
+as.Date(deerexample$DATE, format = "%d.%m.%Y")
+## Convert time
+deerexample$Time <- as.POSIXct(paste(deerexample$DATE, deerexample$UTC), format = "%d.%m.%Y %T", tz = "UTC")
+plot(deerexample$Time,deerexample$LAT, type = "l")
+## See together the LAT/LONG
+par(mfrow = c(2,1))
+plot(deerexample$Time,deerexample$LAT, type = "l")
+plot(deerexample$Time,deerexample$LONG, type = "l")
 
