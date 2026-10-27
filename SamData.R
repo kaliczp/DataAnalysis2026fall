@@ -77,4 +77,39 @@ plot(deerexample$Time,deerexample$LAT, type = "l")
 par(mfrow = c(2,1))
 plot(deerexample$Time,deerexample$LAT, type = "l")
 plot(deerexample$Time,deerexample$LONG, type = "l")
+par(mfrow = c(1,1)) # restore origina graphical settings
 
+## Simple plot of location
+plot(deerexample$LONG, deerexample$LAT)
+
+## Let us see with the sf package
+## Before the very first usage install the package!
+# install.packages("sf") # If you want to install first time remove the hastag from the beginning.
+## Load the package
+library(sf)
+library() # gives information from the installed packages
+
+## Only one point
+st_point(c(deerexample[1,"LAT"],deerexample[1,"LONG"]))
+## Multipoint
+DeerMulitP <- st_multipoint(as.matrix(deerexample[,c("LAT","LONG")]))
+plot(DeerMulitP)
+DeerSfc <- st_sfc(DeerMulitP, crs = "EPSG:4326")
+plot(DeerSfc)
+## Spatial data.frame
+Deerexample_sf <- st_as_sf(
+  deerexample[,c("ID","LONG","LAT", "Time")],
+  coords = c("LONG", "LAT"),
+  crs = 4326
+)
+## Visualisation
+plot(Deerexample_sf)
+plot(Deerexample_sf[1:100,"ID"])
+
+plot(Deerexample_sf[,"ID"], col = "lightgray")
+points(Deerexample_sf[1:100,"ID"])
+
+## Export
+write_sf(obj = Deerexample_sf, dsn = "Deerexample.gpkg")
+write_sf(Deerexample_sf[1:100,"ID"], "Deer100.gpkg")
+## See in QGIS
