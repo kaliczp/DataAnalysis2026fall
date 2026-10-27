@@ -28,3 +28,9 @@ BirdMatrix <- rbind(BirdWetAbattoir,BirdDryAbattoir)
 BirdSpecies <- BirdData[BirdData$Sites == "Abattoir" & BirdData$Seasons == "Wet","Species"]
 colnames(BirdMatrix) <- BirdSpecies
 diversity(BirdMatrix)
+## Extend the matrix
+BirdWetBaroRiB <- BirdData[BirdData$Sites == "BaroRiB" & BirdData$Seasons == "Wet","Counted"]
+BirdDryBaroRiB <- BirdData[BirdData$Sites == "BaroRiB" & BirdData$Seasons == "Dry","Counted"]
+BirdMatrix <- rbind(BirdWetAbattoir, BirdDryAbattoir, BirdWetBaroRiB, BirdDryBaroRiB)
+colnames(BirdMatrix) <- BirdSpecies
+
