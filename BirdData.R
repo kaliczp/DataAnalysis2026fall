@@ -10,3 +10,21 @@ levels(BirdData[, "Family"])
 BirdData[, "Species"] <- factor(BirdData[, "Species"])
 levels(BirdData[, "Species"])
 ## Abudance, dirversity.... Vegan!
+
+## Load
+library(vegan)
+?diversity
+## Check the Example section at the end!
+data(BCI, BCI.env) # load dataset
+?BCI # do not forget the manual
+diversity(BCI) # Test function with example dataset!
+
+## Reformat BirdData for one season one sampling point
+BirdWetAbattoir <- BirdData[BirdData$Sites == "Abattoir" & BirdData$Seasons == "Wet","Counted"]
+diversity(BirdWetAbattoir)
+BirdDryAbattoir <- BirdData[BirdData$Sites == "Abattoir" & BirdData$Seasons == "Dry","Counted"]
+diversity(BirdDryAbattoir)
+BirdMatrix <- rbind(BirdWetAbattoir,BirdDryAbattoir)
+BirdSpecies <- BirdData[BirdData$Sites == "Abattoir" & BirdData$Seasons == "Wet","Species"]
+colnames(BirdMatrix) <- BirdSpecies
+diversity(BirdMatrix)
