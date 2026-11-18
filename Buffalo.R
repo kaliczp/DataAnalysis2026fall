@@ -27,10 +27,14 @@ buffaloTimeDateUTC <- as.POSIXct(paste(format(buffalo[, "GMT Date"], format = "%
 ## Check the ID
 factor(buffalo$ID) # We save the ID too
 
+## Convert non-numeric columns
+buffalo[,"Temp (deg C)"] <- as.numeric(buffalo[,"Temp (deg C)"])
+buffalo[,"Alt (m)"] <- as.numeric(buffalo[,"Alt (m)"])
+
 ## Package for time-series
 library(xts)
 buffalo.xts <- xts(buffalo[,c(1,6:ncol(buffalo))], buffaloTimeDateUTC)
-buffalo.xts <- xts(buffalo[,c("Lat", "Lon", "Cov", "HDOP", "Distance (m)", "Count")], buffaloTimeDateUTC)
+buffalo.xts <- xts(buffalo[,c("Lat", "Lon", "Alt (m)", "Temp (deg C)", "Cov", "HDOP", "Distance (m)", "Count")], buffaloTimeDateUTC)
 
 plot(buffalo.xts$Cov)
 plot(buffalo.xts[, "Distance (m)"])
