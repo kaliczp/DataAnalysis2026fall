@@ -6,4 +6,4 @@ library(readxl)
 ## After the quick read of vignette
 ?read_excel
 ## Based on of the manual we apply:
-buffalo <- read_excel("buffalodata.xlsx")
+buffalo <- as.data.frame(read_excel("buffalodata.xlsx"))
