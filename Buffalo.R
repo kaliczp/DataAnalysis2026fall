@@ -22,3 +22,6 @@ buffaloTimeUTC <- buffalo[,"GMT Time"] + buffaloTimeDiff
 ## Check the ID
 factor(buffalo$ID) # We save the ID too
 
+## Package for time-series
+library(xts)
+buffalo.xts <- xts(buffalo[,c(1,6:ncol(buffalo))], buffaloTimeUTC)
