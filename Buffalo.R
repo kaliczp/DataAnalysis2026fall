@@ -18,10 +18,20 @@ buffaloTimeDiff <- as.POSIXct("2016-08-03 15:42:33", tz = "UTC") - buffalo[1,"GM
 buffalo[1,"GMT Time"] + buffaloTimeDiff
 ## Correction OK, we use the vectorisation
 buffaloTimeUTC <- buffalo[,"GMT Time"] + buffaloTimeDiff
+## We correct also the date!
+format(buffaloTimeUTC, format = "%T")
+## Get the correct date
+buffaloTimeDateUTC <- as.POSIXct(paste(format(buffalo[, "GMT Date"], format = "%Y-%m-%d"),
+      format(buffaloTimeUTC, format = "%T")), tz = "UTC")
 
 ## Check the ID
 factor(buffalo$ID) # We save the ID too
 
 ## Package for time-series
 library(xts)
-buffalo.xts <- xts(buffalo[,c(1,6:ncol(buffalo))], buffaloTimeUTC)
+buffalo.xts <- xts(buffalo[,c(1,6:ncol(buffalo))], buffaloTimeDateUTC)
+buffalo.xts <- xts(buffalo[,c("Lat", "Lon", "Cov", "HDOP", "Distance (m)", "Count")], buffaloTimeDateUTC)
+
+plot(buffalo.xts$Cov)
+plot(buffalo.xts[, "Distance (m)"])
+plot(buffalo.xts["2016-08-08/2016-08-15", "Distance (m)"])
