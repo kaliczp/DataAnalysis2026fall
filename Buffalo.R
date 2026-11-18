@@ -39,3 +39,12 @@ buffalo.xts <- xts(buffalo[,c("Lat", "Lon", "Alt (m)", "Temp (deg C)", "Cov", "H
 plot(buffalo.xts$Cov)
 plot(buffalo.xts[, "Distance (m)"])
 plot(buffalo.xts["2016-08-08/2016-08-15", "Distance (m)"])
+
+## What was the temperature and altitude during big run?
+plot(buffalo.xts["2016-08-08/2016-08-11", c("Distance (m)", "Alt (m)", "Temp (deg C)")], multi.panel = TRUE)
+
+## Subplots, with custom y-axis
+par(mfrow = c(3,1))
+plot(buffalo.xts["2016-08-08/2016-08-11", "Distance (m)"])
+plot(buffalo.xts["2016-08-08/2016-08-11", "Alt (m)"])
+plot(buffalo.xts["2016-08-08/2016-08-11", "Temp (deg C)"])
