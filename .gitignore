@@ -9,3 +9,5 @@
 .R*
 *~
 *.Rproj
+*xlsx
+.~lock*
